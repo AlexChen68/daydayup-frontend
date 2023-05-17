@@ -14,13 +14,16 @@
   },
   "homepage": "https://github.com/AlexChen68/daydayup-frontend#readme",
   "scripts": {
-    "build": "npx babel src -d dist",
-    "dev": "npx webpack -w --mode=development"
+    "build": "npx babel src -d public/dist",
+    "webpack": "npx webpack -w --mode=development",
+    "sass": "sass --watch src/scss:public/stylesheets",
+    "dev": "concurrently \"npm run webpack\" \"npm run sass\""
   },
   "devDependencies": {
     "@babel/cli": "^7.21.5",
     "@babel/core": "^7.21.8",
     "@babel/preset-env": "^7.21.5",
+    "concurrently": "^8.0.1",
     "css-loader": "^6.7.3",
     "style-loader": "^3.3.2",
     "webpack": "^5.82.1",
